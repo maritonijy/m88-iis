@@ -15,7 +15,7 @@ const Notifications = {
     // Current user context (set via setUser() when Auth global is unavailable)
     _userId: null,
     _userRole: null,
-    
+
     // ===========================================
     // INITIALIZATION
     // ===========================================
@@ -38,11 +38,11 @@ const Notifications = {
         this.updateBadge();
         this.checkAlerts();
     },
-    
+
     // ===========================================
     // NOTIFICATION CRUD
     // ===========================================
-    
+
     /**
      * Load user notifications
      */
@@ -54,22 +54,22 @@ const Notifications = {
             const { data, error } = await window.supabase
                 .from('notifications')
                 .select('*')
-                .or(`user_id.eq.${userId},user_id.is.null`)
+                .eq('user_id', userId)
                 .order('created_at', { ascending: false })
                 .limit(50);
-            
+
             if (error) throw error;
-            
+
             this.notifications = data || [];
             this.unreadCount = this.notifications.filter(n => !n.is_read).length;
-            
+
             return this.notifications;
         } catch (error) {
             console.error('Load notifications error:', error);
             return [];
         }
     },
-    
+
     /**
      * Create a notification
      * @param {object} notification - Notification data
@@ -88,16 +88,16 @@ const Notifications = {
                 })
                 .select()
                 .single();
-            
+
             if (error) throw error;
-            
+
             return { success: true, data };
         } catch (error) {
             console.error('Create notification error:', error);
             return { success: false, error: error.message };
         }
     },
-    
+
     /**
      * Mark notification as read
      * @param {string} notificationId - Notification ID
@@ -108,9 +108,9 @@ const Notifications = {
                 .from('notifications')
                 .update({ is_read: true })
                 .eq('id', notificationId);
-            
+
             if (error) throw error;
-            
+
             // Update local cache
             const notification = this.notifications.find(n => n.id === notificationId);
             if (notification && !notification.is_read) {
@@ -118,14 +118,14 @@ const Notifications = {
                 this.unreadCount = Math.max(0, this.unreadCount - 1);
                 this.updateBadge();
             }
-            
+
             return { success: true };
         } catch (error) {
             console.error('Mark as read error:', error);
             return { success: false, error: error.message };
         }
     },
-    
+
     /**
      * Mark all notifications as read
      */
@@ -137,23 +137,23 @@ const Notifications = {
             const { error } = await window.supabase
                 .from('notifications')
                 .update({ is_read: true })
-                .or(`user_id.eq.${userId},user_id.is.null`)
+                .eq('user_id', userId)
                 .eq('is_read', false);
-            
+
             if (error) throw error;
-            
+
             // Update local cache
             this.notifications.forEach(n => n.is_read = true);
             this.unreadCount = 0;
             this.updateBadge();
-            
+
             return { success: true };
         } catch (error) {
             console.error('Mark all as read error:', error);
             return { success: false, error: error.message };
         }
     },
-    
+
     /**
      * Delete a notification
      * @param {string} notificationId - Notification ID
@@ -164,9 +164,9 @@ const Notifications = {
                 .from('notifications')
                 .delete()
                 .eq('id', notificationId);
-            
+
             if (error) throw error;
-            
+
             // Update local cache
             const index = this.notifications.findIndex(n => n.id === notificationId);
             if (index > -1) {
@@ -176,18 +176,18 @@ const Notifications = {
                 this.notifications.splice(index, 1);
                 this.updateBadge();
             }
-            
+
             return { success: true };
         } catch (error) {
             console.error('Delete notification error:', error);
             return { success: false, error: error.message };
         }
     },
-    
+
     // ===========================================
     // AUTOMATIC ALERTS
     // ===========================================
-    
+
     /**
      * Check for system alerts
      * Creates notifications for warranties, maintenance, etc.
@@ -198,12 +198,12 @@ const Notifications = {
             ? Auth.canEdit()
             : (this._userRole === 'admin' || this._userRole === 'it_staff');
         if (!canEdit) return;
-        
+
         await this.checkWarrantyExpiring();
         await this.checkPendingMaintenance();
         await this.checkRefreshDue();
     },
-    
+
     /**
      * Check for expiring warranties
      */
@@ -213,16 +213,16 @@ const Notifications = {
                 .from('v_warranty_expiring')
                 .select('*')
                 .limit(10);
-            
+
             if (error) throw error;
-            
+
             if (data && data.length > 0) {
                 // Check if we already have a recent warranty notification
-                const existingNotification = this.notifications.find(n => 
-                    n.title.includes('Warranty') && 
+                const existingNotification = this.notifications.find(n =>
+                    n.title.includes('Warranty') &&
                     new Date(n.created_at) > new Date(Date.now() - 24 * 60 * 60 * 1000)
                 );
-                
+
                 if (!existingNotification) {
                     await this.create({
                         title: 'Warranties Expiring Soon',
@@ -236,7 +236,7 @@ const Notifications = {
             console.error('Check warranty expiring error:', error);
         }
     },
-    
+
     /**
      * Check for pending maintenance
      */
@@ -246,15 +246,15 @@ const Notifications = {
                 .from('maintenance_records')
                 .select('*', { count: 'exact' })
                 .in('status', ['pending', 'in_progress']);
-            
+
             if (error) throw error;
-            
+
             if (count > 0) {
-                const existingNotification = this.notifications.find(n => 
-                    n.title.includes('Maintenance') && 
+                const existingNotification = this.notifications.find(n =>
+                    n.title.includes('Maintenance') &&
                     new Date(n.created_at) > new Date(Date.now() - 24 * 60 * 60 * 1000)
                 );
-                
+
                 if (!existingNotification) {
                     await this.create({
                         title: 'Pending Maintenance',
@@ -268,7 +268,7 @@ const Notifications = {
             console.error('Check pending maintenance error:', error);
         }
     },
-    
+
     /**
      * Check for assets due for refresh
      */
@@ -278,15 +278,15 @@ const Notifications = {
                 .from('v_assets_refresh_due')
                 .select('*')
                 .limit(10);
-            
+
             if (error) throw error;
-            
+
             if (data && data.length > 0) {
-                const existingNotification = this.notifications.find(n => 
-                    n.title.includes('Refresh') && 
+                const existingNotification = this.notifications.find(n =>
+                    n.title.includes('Refresh') &&
                     new Date(n.created_at) > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000) // Weekly
                 );
-                
+
                 if (!existingNotification) {
                     await this.create({
                         title: 'Assets Due for Refresh',
@@ -300,11 +300,11 @@ const Notifications = {
             console.error('Check refresh due error:', error);
         }
     },
-    
+
     // ===========================================
     // UI METHODS
     // ===========================================
-    
+
     /**
      * Update notification badge count
      */
@@ -319,14 +319,14 @@ const Notifications = {
             }
         });
     },
-    
+
     /**
      * Render notifications dropdown
      * @param {HTMLElement} container - Container element
      */
     renderDropdown(container) {
         if (!container) return;
-        
+
         if (this.notifications.length === 0) {
             container.innerHTML = `
                 <div class="p-4 text-center text-slate-400">
@@ -338,9 +338,9 @@ const Notifications = {
             `;
             return;
         }
-        
+
         const notificationsHtml = this.notifications.slice(0, 10).map(n => this.renderNotificationItem(n)).join('');
-        
+
         container.innerHTML = `
             <div class="p-3 border-b border-slate-700 flex items-center justify-between">
                 <h4 class="font-medium text-white">Notifications</h4>
@@ -359,18 +359,18 @@ const Notifications = {
                 </a>
             </div>
         `;
-        
+
         // Attach event handlers
         container.querySelector('#mark-all-read')?.addEventListener('click', async () => {
             await this.markAllAsRead();
             this.renderDropdown(container);
         });
-        
+
         container.querySelectorAll('.notification-item').forEach(item => {
             item.addEventListener('click', async (e) => {
                 const id = item.dataset.id;
                 await this.markAsRead(id);
-                
+
                 const link = item.dataset.link;
                 if (link) {
                     window.location.href = link;
@@ -378,7 +378,7 @@ const Notifications = {
             });
         });
     },
-    
+
     /**
      * Render single notification item
      * @param {object} notification - Notification object
@@ -387,7 +387,7 @@ const Notifications = {
     renderNotificationItem(notification) {
         const typeConfig = CONFIG.NOTIFICATION_TYPES[notification.type] || CONFIG.NOTIFICATION_TYPES.info;
         const isUnread = !notification.is_read;
-        
+
         return `
             <div class="notification-item p-3 hover:bg-slate-700/50 cursor-pointer ${isUnread ? 'bg-slate-700/30' : ''} transition-colors"
                  data-id="${notification.id}"
@@ -407,20 +407,20 @@ const Notifications = {
             </div>
         `;
     },
-    
+
     /**
      * Get alerts for dashboard display
      * @returns {Promise<object[]>} Alert objects
      */
     async getDashboardAlerts() {
         const alerts = [];
-        
+
         try {
             // Warranty alerts
             const { data: warrantyData } = await window.supabase
                 .from('v_warranty_expiring')
                 .select('*', { count: 'exact' });
-            
+
             if (warrantyData && warrantyData.length > 0) {
                 alerts.push({
                     type: 'warning',
@@ -430,13 +430,13 @@ const Notifications = {
                     count: warrantyData.length
                 });
             }
-            
+
             // Under repair alerts
             const { count: repairCount } = await window.supabase
                 .from('assets')
                 .select('*', { count: 'exact', head: true })
                 .eq('status', 'under_repair');
-            
+
             if (repairCount > 0) {
                 alerts.push({
                     type: 'info',
@@ -446,13 +446,13 @@ const Notifications = {
                     count: repairCount
                 });
             }
-            
+
             // Lost/Damaged alerts
             const { count: lostCount } = await window.supabase
                 .from('assets')
                 .select('*', { count: 'exact', head: true })
                 .in('status', ['lost', 'damaged']);
-            
+
             if (lostCount > 0) {
                 alerts.push({
                     type: 'error',
@@ -462,12 +462,12 @@ const Notifications = {
                     count: lostCount
                 });
             }
-            
+
             // Refresh due alerts
             const { data: refreshData } = await window.supabase
                 .from('v_assets_refresh_due')
                 .select('*', { count: 'exact' });
-            
+
             if (refreshData && refreshData.length > 0) {
                 alerts.push({
                     type: 'warning',
@@ -477,11 +477,11 @@ const Notifications = {
                     count: refreshData.length
                 });
             }
-            
+
         } catch (error) {
             console.error('Get dashboard alerts error:', error);
         }
-        
+
         return alerts;
     }
 };

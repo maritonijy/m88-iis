@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,16 +16,16 @@
 
     <!-- Early auth hash redirect (must run BEFORE module scripts) -->
     <script>
-    (function() {
-        var h = window.location.hash;
-        if (h) {
-            var p = new URLSearchParams(h.substring(1));
-            var t = p.get('type');
-            if (t === 'recovery' || t === 'invite' || t === 'signup' || t === 'magiclink') {
-                window.location.replace('/src/pages/set-password.html' + h);
+        (function () {
+            var h = window.location.hash;
+            if (h) {
+                var p = new URLSearchParams(h.substring(1));
+                var t = p.get('type');
+                if (t === 'recovery' || t === 'invite' || t === 'signup' || t === 'magiclink') {
+                    window.location.replace('/src/pages/set-password.html' + h);
+                }
             }
-        }
-    })();
+        })();
     </script>
 
     <!-- Vendor Libraries (bundled from npm) -->
@@ -39,6 +40,7 @@
     <script type="module" src="../scripts/auth.js"></script>
     <script type="module" src="../scripts/notifications.js"></script>
 </head>
+
 <body>
     <!-- =============================================
          LOADING SCREEN
@@ -76,7 +78,8 @@
                     <p class="nav-section-title">Main</p>
                     <a href="dashboard.html" class="nav-link active">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                         </svg>
                         Dashboard
                     </a>
@@ -87,25 +90,29 @@
                     <p class="nav-section-title">Asset Management</p>
                     <a href="assets.html" class="nav-link">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                         IT Equipment Inventory
                     </a>
                     <a href="software-licenses.html" class="nav-link">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                         </svg>
                         Software Licenses
                     </a>
                     <a href="employees.html" class="nav-link">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                         </svg>
                         Employees
                     </a>
                     <a href="assignments.html" class="nav-link">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                         </svg>
                         Assignments
                     </a>
@@ -116,14 +123,17 @@
                     <p class="nav-section-title">Asset Tracking</p>
                     <a href="maintenance.html" class="nav-link">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                         Asset Maintenance
                     </a>
                     <a href="lost-assets.html" class="nav-link">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                         </svg>
                         Lost Assets
                     </a>
@@ -134,13 +144,15 @@
                     <p class="nav-section-title">Reports</p>
                     <a href="reports.html" class="nav-link">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
                         Export Reports
                     </a>
                     <a href="audit-logs.html" class="nav-link" id="audit-logs-link">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
                         Audit Logs
                     </a>
@@ -151,13 +163,15 @@
                     <p class="nav-section-title">Administration</p>
                     <a href="settings.html" class="nav-link">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                         </svg>
                         Settings
                     </a>
                     <a href="user-maintenance.html" class="nav-link" id="user-maintenance-link">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                         </svg>
                         User Maintenance
                     </a>
@@ -176,7 +190,8 @@
                     </div>
                     <button onclick="handleLogout()" class="text-slate-400 hover:text-white" title="Logout">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                         </svg>
                     </button>
                 </div>
@@ -190,20 +205,26 @@
             <!-- Top Bar -->
             <header class="topbar">
                 <div class="topbar-left">
-                    <button id="menu-toggle" class="lg:hidden text-slate-400 hover:text-white" onclick="toggleSidebar()">
+                    <button id="menu-toggle" class="lg:hidden text-slate-400 hover:text-white"
+                        onclick="toggleSidebar()">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
                     <h2 class="text-lg font-semibold text-white">Dashboard</h2>
                     <!-- Region Selector (Executive only) -->
-                    <select id="region-selector" class="hidden ml-4 px-3 py-1.5 bg-slate-700 border border-slate-600 rounded-lg text-sm text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="handleRegionChange(this.value)">
+                    <select id="region-selector"
+                        class="hidden ml-4 px-3 py-1.5 bg-slate-700 border border-slate-600 rounded-lg text-sm text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        onchange="handleRegionChange(this.value)">
                         <option value="">All Regions</option>
                     </select>
                     <!-- Region label (Admin/IT Staff) -->
                     <span id="region-label" class="hidden ml-3 text-sm text-slate-400"></span>
                     <!-- Month Selector (Executive, Exec-Admin, Admin, IT Staff) -->
-                    <select id="month-selector" class="hidden ml-4 px-3 py-1.5 bg-slate-700 border border-slate-600 rounded-lg text-sm text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="handleMonthChange(this.value)">
+                    <select id="month-selector"
+                        class="hidden ml-4 px-3 py-1.5 bg-slate-700 border border-slate-600 rounded-lg text-sm text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        onchange="handleMonthChange(this.value)">
                         <option value="">All Months</option>
                     </select>
                 </div>
@@ -212,7 +233,8 @@
                     <div class="dropdown relative" id="notification-bell-wrapper">
                         <button class="btn btn-icon btn-secondary relative" onclick="toggleNotifications()">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                             </svg>
                             <span class="notification-badge hidden" id="notification-count">0</span>
                         </button>
@@ -241,17 +263,27 @@
                         <h1 class="page-title mb-0" id="dashboard-title">Dashboard Overview</h1>
                         <!-- Hardware / Software Toggle -->
                         <div class="dashboard-toggle" id="dashboard-toggle">
-                            <button class="dashboard-toggle-btn active" id="toggle-hardware" onclick="switchDashboardView('hardware')">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            <button class="dashboard-toggle-btn active" id="toggle-hardware"
+                                onclick="switchDashboardView('hardware')">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
                                 Hardware
                             </button>
-                            <button class="dashboard-toggle-btn" id="toggle-software" onclick="switchDashboardView('software')">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                            <button class="dashboard-toggle-btn" id="toggle-software"
+                                onclick="switchDashboardView('software')">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
                                 Software
                             </button>
                         </div>
                     </div>
-                    <p class="page-subtitle mt-2">Welcome back, <span id="welcome-user-name" class="text-blue-400 font-medium">User</span>! Here's what's happening with your IT assets.</p>
+                    <p class="page-subtitle mt-2">Welcome back, <span id="welcome-user-name"
+                            class="text-blue-400 font-medium">User</span>! Here's what's happening with your IT assets.
+                    </p>
                 </div>
 
                 <!-- =============================================
@@ -259,193 +291,217 @@
                      ============================================= -->
                 <div id="hardware-dashboard">
 
-                <!-- Stats Cards -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
-                    <!-- Available Assets -->
-                    <div class="stat-card bg-linear-to-br from-green-600 to-green-700">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-green-200 text-sm font-medium">Available Assets</p>
-                                <p class="text-3xl font-bold text-white mt-1" id="stat-available-assets">--</p>
-                            </div>
-                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <p class="text-green-200 text-xs mt-2">
-                            Can be assigned to employees
-                        </p>
-                    </div>
-
-                    <!-- Assigned Assets -->
-                    <div class="stat-card bg-linear-to-br from-blue-600 to-blue-700">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-blue-200 text-sm font-medium">Assigned</p>
-                                <p class="text-3xl font-bold text-white mt-1" id="stat-assigned-assets">--</p>
-                            </div>
-                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <p class="text-blue-200 text-xs mt-2">Currently in use</p>
-                    </div>
-
-                    <!-- Under Repair -->
-                    <div class="stat-card bg-linear-to-br from-yellow-600 to-yellow-700">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-yellow-200 text-sm font-medium">Under Repair</p>
-                                <p class="text-3xl font-bold text-white mt-1" id="stat-under-repair">--</p>
-                            </div>
-                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <p class="text-yellow-200 text-xs mt-2">Being serviced</p>
-                    </div>
-
-                    <!-- Issues -->
-                    <div class="stat-card bg-linear-to-br from-red-600 to-red-700">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-red-200 text-sm font-medium">Issues</p>
-                                <p class="text-3xl font-bold text-white mt-1" id="stat-issues">--</p>
-                            </div>
-                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <p class="text-red-200 text-xs mt-2">Lost or damaged</p>
-                    </div>
-
-                    <!-- Decommissioned -->
-                    <div class="stat-card bg-linear-to-br from-gray-600 to-gray-700">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-gray-200 text-sm font-medium">Decommissioned</p>
-                                <p class="text-3xl font-bold text-white mt-1" id="stat-decommissioned">--</p>
-                            </div>
-                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <p class="text-gray-200 text-xs mt-2">Retired from service</p>
-                    </div>
-                </div>
-
-                <!-- Charts Row -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-                    <!-- Assets by Status -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Assets by Status</h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="chart-container">
-                                <canvas id="status-chart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Assets by Category -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Assets by Category</h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="chart-container">
-                                <canvas id="category-chart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Bottom Row -->
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6" id="bottom-row-grid" style="--exec-visible: 0">
-                    <!-- Executive Financial Summary (Executive & Exec-Admin only) -->
-                    <div class="card hidden" id="exec-summary-panel">
-                        <div class="card-header flex items-center justify-between">
-                            <div>
-                                <h3 class="card-title">Financial Overview</h3>
-                                <p class="text-xs text-slate-400 mt-1" id="exec-currency-label">Key financial metrics</p>
-                            </div>
-                            <div class="flex items-center gap-1">
-                                <button onclick="prevExecSlide()" class="p-1 rounded hover:bg-slate-700 text-slate-400 hover:text-white transition" title="Previous">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                                </button>
-                                <button onclick="nextExecSlide()" class="p-1 rounded hover:bg-slate-700 text-slate-400 hover:text-white transition" title="Next">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-body p-0 relative">
-                            <div id="exec-slides-container" class="exec-carousel">
-                                <!-- Slides will be populated by JS -->
-                                <div class="p-6 text-center text-slate-400">
-                                    <div class="spinner mx-auto mb-3"></div>
-                                    Loading financial data...
+                    <!-- Stats Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
+                        <!-- Available Assets -->
+                        <div class="stat-card bg-linear-to-br from-green-600 to-green-700">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-green-200 text-sm font-medium">Available Assets</p>
+                                    <p class="text-3xl font-bold text-white mt-1" id="stat-available-assets">--</p>
+                                </div>
+                                <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
                                 </div>
                             </div>
-                            <!-- Slide indicators -->
-                            <div id="exec-slide-indicators" class="flex justify-center gap-1.5 pb-3"></div>
+                            <p class="text-green-200 text-xs mt-2">
+                                Can be assigned to employees
+                            </p>
+                        </div>
+
+                        <!-- Assigned Assets -->
+                        <div class="stat-card bg-linear-to-br from-blue-600 to-blue-700">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-blue-200 text-sm font-medium">Assigned</p>
+                                    <p class="text-3xl font-bold text-white mt-1" id="stat-assigned-assets">--</p>
+                                </div>
+                                <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="text-blue-200 text-xs mt-2">Currently in use</p>
+                        </div>
+
+                        <!-- Under Repair -->
+                        <div class="stat-card bg-linear-to-br from-yellow-600 to-yellow-700">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-yellow-200 text-sm font-medium">Under Repair</p>
+                                    <p class="text-3xl font-bold text-white mt-1" id="stat-under-repair">--</p>
+                                </div>
+                                <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="text-yellow-200 text-xs mt-2">Being serviced</p>
+                        </div>
+
+                        <!-- Issues -->
+                        <div class="stat-card bg-linear-to-br from-red-600 to-red-700">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-red-200 text-sm font-medium">Issues</p>
+                                    <p class="text-3xl font-bold text-white mt-1" id="stat-issues">--</p>
+                                </div>
+                                <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="text-red-200 text-xs mt-2">Lost or damaged</p>
+                        </div>
+
+                        <!-- Decommissioned -->
+                        <div class="stat-card bg-linear-to-br from-gray-600 to-gray-700">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-gray-200 text-sm font-medium">Decommissioned</p>
+                                    <p class="text-3xl font-bold text-white mt-1" id="stat-decommissioned">--</p>
+                                </div>
+                                <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="text-gray-200 text-xs mt-2">Retired from service</p>
                         </div>
                     </div>
 
-                    <!-- Asset Acquisition Trends -->
-                    <div class="card" id="acquisition-trends-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Asset Activity Trends</h3>
-                            <p class="text-xs text-slate-400 mt-1">Acquisitions, losses, and repairs over the last 12 months</p>
-                        </div>
-                        <div class="card-body">
-                            <div class="chart-container" style="height: 280px;">
-                                <canvas id="acquisition-chart"></canvas>
+                    <!-- Charts Row -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                        <!-- Assets by Status -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Assets by Status</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <canvas id="status-chart"></canvas>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Alerts & Reminders -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Alerts & Reminders</h3>
-                        </div>
-                        <div class="card-body p-0">
-                            <div id="alerts-list" class="divide-y divide-slate-700 max-h-64 overflow-y-auto">
-                                <!-- Alerts will be loaded here -->
-                                <div class="p-4 text-center text-slate-400">
-                                    Loading alerts...
+                        <!-- Assets by Category -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Assets by Category</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <canvas id="category-chart"></canvas>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Asset Health Heatmap -->
-                <div class="card mt-6">
-                    <div class="card-header">
-                        <h3 class="card-title">Asset Health & Status Matrix</h3>
-                        <p class="text-xs text-slate-400 mt-1">Real-time inventory levels and health indicators by category</p>
-                    </div>
-                    <div class="card-body">
-                        <div id="heatmap-container" class="overflow-x-auto">
-                            <div class="text-center text-slate-400 py-8">
-                                Loading heatmap...
+                    <!-- Bottom Row -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6" id="bottom-row-grid" style="--exec-visible: 0">
+                        <!-- Executive Financial Summary (Executive & Exec-Admin only) -->
+                        <div class="card hidden" id="exec-summary-panel">
+                            <div class="card-header flex items-center justify-between">
+                                <div>
+                                    <h3 class="card-title">Financial Overview</h3>
+                                    <p class="text-xs text-slate-400 mt-1" id="exec-currency-label">Key financial
+                                        metrics</p>
+                                </div>
+                                <div class="flex items-center gap-1">
+                                    <button onclick="prevExecSlide()"
+                                        class="p-1 rounded hover:bg-slate-700 text-slate-400 hover:text-white transition"
+                                        title="Previous">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15 19l-7-7 7-7" />
+                                        </svg>
+                                    </button>
+                                    <button onclick="nextExecSlide()"
+                                        class="p-1 rounded hover:bg-slate-700 text-slate-400 hover:text-white transition"
+                                        title="Next">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body p-0 relative">
+                                <div id="exec-slides-container" class="exec-carousel">
+                                    <!-- Slides will be populated by JS -->
+                                    <div class="p-6 text-center text-slate-400">
+                                        <div class="spinner mx-auto mb-3"></div>
+                                        Loading financial data...
+                                    </div>
+                                </div>
+                                <!-- Slide indicators -->
+                                <div id="exec-slide-indicators" class="flex justify-center gap-1.5 pb-3"></div>
+                            </div>
+                        </div>
+
+                        <!-- Asset Acquisition Trends -->
+                        <div class="card" id="acquisition-trends-card">
+                            <div class="card-header">
+                                <h3 class="card-title">Asset Activity Trends</h3>
+                                <p class="text-xs text-slate-400 mt-1">Acquisitions, losses, and repairs over the last
+                                    12 months</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container" style="height: 280px;">
+                                    <canvas id="acquisition-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Alerts & Reminders -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Alerts & Reminders</h3>
+                            </div>
+                            <div class="card-body p-0">
+                                <div id="alerts-list" class="divide-y divide-slate-700 max-h-64 overflow-y-auto">
+                                    <!-- Alerts will be loaded here -->
+                                    <div class="p-4 text-center text-slate-400">
+                                        Loading alerts...
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+
+                    <!-- Asset Health Heatmap -->
+                    <div class="card mt-6">
+                        <div class="card-header">
+                            <h3 class="card-title">Asset Health & Status Matrix</h3>
+                            <p class="text-xs text-slate-400 mt-1">Real-time inventory levels and health indicators by
+                                category</p>
+                        </div>
+                        <div class="card-body">
+                            <div id="heatmap-container" class="overflow-x-auto">
+                                <div class="text-center text-slate-400 py-8">
+                                    Loading heatmap...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div><!-- end hardware-dashboard -->
 
                 <!-- =============================================
@@ -453,144 +509,152 @@
                      ============================================= -->
                 <div id="software-dashboard" class="hidden">
 
-                <!-- Software Stats Cards -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                    <!-- Total Products -->
-                    <div class="stat-card bg-linear-to-br from-blue-600 to-blue-700">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-blue-200 text-sm font-medium">Total Products</p>
-                                <p class="text-3xl font-bold text-white mt-1" id="sw-stat-total">--</p>
+                    <!-- Software Stats Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                        <!-- Total Products -->
+                        <div class="stat-card bg-linear-to-br from-blue-600 to-blue-700">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-blue-200 text-sm font-medium">Total Products</p>
+                                    <p class="text-3xl font-bold text-white mt-1" id="sw-stat-total">--</p>
+                                </div>
+                                <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                    </svg>
+                                </div>
                             </div>
-                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                                </svg>
-                            </div>
+                            <p class="text-blue-200 text-xs mt-2">Software products tracked</p>
                         </div>
-                        <p class="text-blue-200 text-xs mt-2">Software products tracked</p>
-                    </div>
 
-                    <!-- Active Licenses -->
-                    <div class="stat-card bg-linear-to-br from-green-600 to-green-700">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-green-200 text-sm font-medium">Active</p>
-                                <p class="text-3xl font-bold text-white mt-1" id="sw-stat-active">--</p>
+                        <!-- Active Licenses -->
+                        <div class="stat-card bg-linear-to-br from-green-600 to-green-700">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-green-200 text-sm font-medium">Active</p>
+                                    <p class="text-3xl font-bold text-white mt-1" id="sw-stat-active">--</p>
+                                </div>
+                                <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
                             </div>
-                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                </svg>
-                            </div>
+                            <p class="text-green-200 text-xs mt-2">Active employee assignments</p>
                         </div>
-                        <p class="text-green-200 text-xs mt-2">Active employee assignments</p>
-                    </div>
 
-                    <!-- Expiring Soon -->
-                    <div class="stat-card bg-linear-to-br from-yellow-600 to-yellow-700">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-yellow-200 text-sm font-medium">Expiring Soon</p>
-                                <p class="text-3xl font-bold text-white mt-1" id="sw-stat-expiring">--</p>
+                        <!-- Expiring Soon -->
+                        <div class="stat-card bg-linear-to-br from-yellow-600 to-yellow-700">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-yellow-200 text-sm font-medium">Expiring Soon</p>
+                                    <p class="text-3xl font-bold text-white mt-1" id="sw-stat-expiring">--</p>
+                                </div>
+                                <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
                             </div>
-                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                </svg>
-                            </div>
+                            <p class="text-yellow-200 text-xs mt-2">Expiring within 90 days</p>
                         </div>
-                        <p class="text-yellow-200 text-xs mt-2">Expiring within 90 days</p>
-                    </div>
 
-                    <!-- Expired -->
-                    <div class="stat-card bg-linear-to-br from-red-600 to-red-700">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-red-200 text-sm font-medium">Expired</p>
-                                <p class="text-3xl font-bold text-white mt-1" id="sw-stat-expired">--</p>
+                        <!-- Expired -->
+                        <div class="stat-card bg-linear-to-br from-red-600 to-red-700">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-red-200 text-sm font-medium">Expired</p>
+                                    <p class="text-3xl font-bold text-white mt-1" id="sw-stat-expired">--</p>
+                                </div>
+                                <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                                    </svg>
+                                </div>
                             </div>
-                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <p class="text-red-200 text-xs mt-2">Past expiry date</p>
-                    </div>
-                </div>
-
-                <!-- Software Charts Row -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-                    <!-- Licenses by Status -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Licenses by Status</h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="chart-container">
-                                <canvas id="sw-status-chart"></canvas>
-                            </div>
+                            <p class="text-red-200 text-xs mt-2">Past expiry date</p>
                         </div>
                     </div>
 
-                    <!-- Licenses by Category -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Licenses by Category</h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="chart-container">
-                                <canvas id="sw-category-chart"></canvas>
+                    <!-- Software Charts Row -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                        <!-- Licenses by Status -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Licenses by Status</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <canvas id="sw-status-chart"></canvas>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Software Bottom Row -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <!-- License Activity Trends -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">License Expiry Timeline</h3>
-                            <p class="text-xs text-slate-400 mt-1">Licenses expiring over the next 12 months</p>
-                        </div>
-                        <div class="card-body">
-                            <div class="chart-container" style="height: 280px;">
-                                <canvas id="sw-expiry-chart"></canvas>
+                        <!-- Licenses by Category -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Licenses by Category</h3>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Software Alerts & Reminders -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Software Alerts</h3>
-                        </div>
-                        <div class="card-body p-0">
-                            <div id="sw-alerts-list" class="divide-y divide-slate-700 max-h-64 overflow-y-auto">
-                                <div class="p-4 text-center text-slate-400">
-                                    Loading alerts...
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <canvas id="sw-category-chart"></canvas>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Software License Health Matrix -->
-                <div class="card mt-6">
-                    <div class="card-header">
-                        <h3 class="card-title">License Health & Status Matrix</h3>
-                        <p class="text-xs text-slate-400 mt-1">Software license status overview by category</p>
-                    </div>
-                    <div class="card-body">
-                        <div id="sw-heatmap-container" class="overflow-x-auto">
-                            <div class="text-center text-slate-400 py-8">
-                                Loading software matrix...
+                    <!-- Software Bottom Row -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <!-- License Activity Trends -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">License Expiry Timeline</h3>
+                                <p class="text-xs text-slate-400 mt-1">Licenses expiring over the next 12 months</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container" style="height: 280px;">
+                                    <canvas id="sw-expiry-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Software Alerts & Reminders -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Software Alerts</h3>
+                            </div>
+                            <div class="card-body p-0">
+                                <div id="sw-alerts-list" class="divide-y divide-slate-700 max-h-64 overflow-y-auto">
+                                    <div class="p-4 text-center text-slate-400">
+                                        Loading alerts...
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+
+                    <!-- Software License Health Matrix -->
+                    <div class="card mt-6">
+                        <div class="card-header">
+                            <h3 class="card-title">License Health & Status Matrix</h3>
+                            <p class="text-xs text-slate-400 mt-1">Software license status overview by category</p>
+                        </div>
+                        <div class="card-body">
+                            <div id="sw-heatmap-container" class="overflow-x-auto">
+                                <div class="text-center text-slate-400 py-8">
+                                    Loading software matrix...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div><!-- end software-dashboard -->
 
             </div>
@@ -601,13 +665,15 @@
     <div id="toast-container"></div>
 
     <!-- Alert Detail Modal -->
-    <div id="alert-detail-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" onclick="closeAlertDetailModal()">
+    <div id="alert-detail-modal" class="modal-overlay hidden" role="dialog" aria-modal="true"
+        onclick="closeAlertDetailModal()">
         <div class="modal" style="max-width:860px; width:100%;" onclick="event.stopPropagation()">
             <div class="modal-header">
                 <h3 class="modal-title" id="alert-detail-title">Alert Details</h3>
                 <button onclick="closeAlertDetailModal()" class="text-slate-400 hover:text-white">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
@@ -918,7 +984,7 @@
         /**
          * Handle month dropdown change
          */
-        window.handleMonthChange = async function(monthKey) {
+        window.handleMonthChange = async function (monthKey) {
             selectedMonthKey = monthKey || null;
             await loadDashboardData();
         };
@@ -926,7 +992,7 @@
         /**
          * Handle region dropdown change (Executive only)
          */
-        window.handleRegionChange = async function(regionId) {
+        window.handleRegionChange = async function (regionId) {
             selectedRegionId = regionId || null;
             const dashboardTitle = document.getElementById('dashboard-title');
 
@@ -1107,7 +1173,7 @@
                                     font: {
                                         size: 12
                                     },
-                                    generateLabels: function(chart) {
+                                    generateLabels: function (chart) {
                                         const data = chart.data;
                                         return data.labels.map((label, i) => ({
                                             text: `${label}: ${data.datasets[0].data[i]}`,
@@ -1135,10 +1201,10 @@
                                     size: 13
                                 },
                                 callbacks: {
-                                    title: function(context) {
+                                    title: function (context) {
                                         return context[0].label.toUpperCase() || '';
                                     },
-                                    label: function(context) {
+                                    label: function (context) {
                                         const status = sortedStatuses[context.dataIndex];
                                         const value = context.parsed;
                                         const percentage = ((value / totalAssets) * 100).toFixed(1);
@@ -1165,7 +1231,7 @@
                     },
                     plugins: [{
                         id: 'centerText',
-                        beforeDraw: function(chart) {
+                        beforeDraw: function (chart) {
                             const ctx = chart.ctx;
                             const chartArea = chart.chartArea;
                             const centerX = (chartArea.left + chartArea.right) / 2;
@@ -1192,181 +1258,181 @@
                     }]
                 });
 
-            // Category Chart — stacked by region when All Regions, single color otherwise
-            // Region colour palette (keyed by region code from CONFIG.REGIONS)
-            const regionColorPalette = {
-                'PH': '#06b6d4',   // cyan   – Philippines
-                'ID': '#f97316',   // orange – Indonesia
-                'CN': '#ef4444',   // red    – China
-                'US': '#3b82f6',   // blue   – United States
-            };
-            const regionColorFallback = '#8b5cf6'; // purple for unrecognised regions
+                // Category Chart — stacked by region when All Regions, single color otherwise
+                // Region colour palette (keyed by region code from CONFIG.REGIONS)
+                const regionColorPalette = {
+                    'PH': '#06b6d4',   // cyan   – Philippines
+                    'ID': '#f97316',   // orange – Indonesia
+                    'CN': '#ef4444',   // red    – China
+                    'US': '#3b82f6',   // blue   – United States
+                };
+                const regionColorFallback = '#8b5cf6'; // purple for unrecognised regions
 
-            // Helper: get colour for a region_id using regionsMap (populated for execs)
-            function getRegionColor(regionId) {
-                const code = regionsMap[regionId]?.code || '';
-                return regionColorPalette[code] || regionColorFallback;
-            }
+                // Helper: get colour for a region_id using regionsMap (populated for execs)
+                function getRegionColor(regionId) {
+                    const code = regionsMap[regionId]?.code || '';
+                    return regionColorPalette[code] || regionColorFallback;
+                }
 
-            // Always fetch region_id so we can build the stacked chart
-            let catQuery = supabase
-                .from('assets')
-                .select('region_id, category:asset_categories(name)');
-            catQuery = applyRegionFilter(catQuery);
-            catQuery = applyMonthFilter(catQuery, 'created_at');
-            const { data: categoryData } = await catQuery;
+                // Always fetch region_id so we can build the stacked chart
+                let catQuery = supabase
+                    .from('assets')
+                    .select('region_id, category:asset_categories(name)');
+                catQuery = applyRegionFilter(catQuery);
+                catQuery = applyMonthFilter(catQuery, 'created_at');
+                const { data: categoryData } = await catQuery;
 
-            // Destroy existing chart first
-            if (categoryChartInstance) {
-                categoryChartInstance.destroy();
-                categoryChartInstance = null;
-            }
+                // Destroy existing chart first
+                if (categoryChartInstance) {
+                    categoryChartInstance.destroy();
+                    categoryChartInstance = null;
+                }
 
-            let catChartData;
-            let catChartOptions;
+                let catChartData;
+                let catChartOptions;
 
-            if (!selectedRegionId) {
-                // ── ALL REGIONS: stacked bar chart ──────────────────────────────
-                // Collect all categories and all region_ids present in data
-                const allCategories = new Set();
-                const allRegionIds  = new Set();
-                (categoryData || []).forEach(asset => {
-                    allCategories.add(asset.category?.name || 'Uncategorized');
-                    if (asset.region_id) allRegionIds.add(asset.region_id);
-                });
+                if (!selectedRegionId) {
+                    // ── ALL REGIONS: stacked bar chart ──────────────────────────────
+                    // Collect all categories and all region_ids present in data
+                    const allCategories = new Set();
+                    const allRegionIds = new Set();
+                    (categoryData || []).forEach(asset => {
+                        allCategories.add(asset.category?.name || 'Uncategorized');
+                        if (asset.region_id) allRegionIds.add(asset.region_id);
+                    });
 
-                const sortedCategories = [...allCategories].sort();
-                // Sort regions deterministically by their display label (or id)
-                const sortedRegionIds = [...allRegionIds].sort((a, b) => {
-                    const la = regionsMap[a]?.name || a;
-                    const lb = regionsMap[b]?.name || b;
-                    return la.localeCompare(lb);
-                });
+                    const sortedCategories = [...allCategories].sort();
+                    // Sort regions deterministically by their display label (or id)
+                    const sortedRegionIds = [...allRegionIds].sort((a, b) => {
+                        const la = regionsMap[a]?.name || a;
+                        const lb = regionsMap[b]?.name || b;
+                        return la.localeCompare(lb);
+                    });
 
-                // Build a count matrix  regionId → categoryName → count
-                const matrix = {};
-                sortedRegionIds.forEach(rid => {
-                    matrix[rid] = {};
-                    sortedCategories.forEach(cat => { matrix[rid][cat] = 0; });
-                });
-                (categoryData || []).forEach(asset => {
-                    const cat = asset.category?.name || 'Uncategorized';
-                    const rid = asset.region_id;
-                    if (rid && matrix[rid]) matrix[rid][cat]++;
-                });
+                    // Build a count matrix  regionId → categoryName → count
+                    const matrix = {};
+                    sortedRegionIds.forEach(rid => {
+                        matrix[rid] = {};
+                        sortedCategories.forEach(cat => { matrix[rid][cat] = 0; });
+                    });
+                    (categoryData || []).forEach(asset => {
+                        const cat = asset.category?.name || 'Uncategorized';
+                        const rid = asset.region_id;
+                        if (rid && matrix[rid]) matrix[rid][cat]++;
+                    });
 
-                // One dataset per region
-                const datasets = sortedRegionIds.map(rid => {
-                    const regionName = regionsMap[rid]?.name || `Region ${rid}`;
-                    const color = getRegionColor(rid);
-                    return {
-                        label: regionName,
-                        data: sortedCategories.map(cat => matrix[rid][cat]),
-                        backgroundColor: color,
-                        borderColor: color,
-                        borderRadius: 2
+                    // One dataset per region
+                    const datasets = sortedRegionIds.map(rid => {
+                        const regionName = regionsMap[rid]?.name || `Region ${rid}`;
+                        const color = getRegionColor(rid);
+                        return {
+                            label: regionName,
+                            data: sortedCategories.map(cat => matrix[rid][cat]),
+                            backgroundColor: color,
+                            borderColor: color,
+                            borderRadius: 2
+                        };
+                    });
+
+                    catChartData = { labels: sortedCategories, datasets };
+                    catChartOptions = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                                labels: {
+                                    color: '#94a3b8',
+                                    padding: 8,
+                                    font: { size: 9 },
+                                    boxWidth: 10,
+                                    boxHeight: 10,
+                                    usePointStyle: true,
+                                    pointStyle: 'rect'
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#1e293b',
+                                titleColor: '#fff',
+                                bodyColor: '#94a3b8',
+                                borderColor: '#334155',
+                                borderWidth: 1,
+                                padding: 12,
+                                callbacks: {
+                                    title: ctx => ctx[0].label,
+                                    label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y}`
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                stacked: true,
+                                ticks: { color: '#94a3b8' },
+                                grid: { display: false }
+                            },
+                            y: {
+                                stacked: true,
+                                ticks: { color: '#94a3b8' },
+                                grid: { color: '#334155' }
+                            }
+                        }
                     };
-                });
 
-                catChartData = { labels: sortedCategories, datasets };
-                catChartOptions = {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: true,
-                            position: 'top',
-                            labels: {
-                                color: '#94a3b8',
-                                padding: 8,
-                                font: { size: 9 },
-                                boxWidth: 10,
-                                boxHeight: 10,
-                                usePointStyle: true,
-                                pointStyle: 'rect'
+                } else {
+                    // ── SINGLE REGION: simple bar with region colour ─────────────
+                    const categoryCounts = {};
+                    (categoryData || []).forEach(asset => {
+                        const catName = asset.category?.name || 'Uncategorized';
+                        categoryCounts[catName] = (categoryCounts[catName] || 0) + 1;
+                    });
+
+                    const regionColor = getRegionColor(selectedRegionId);
+                    const regionName = regionsMap[selectedRegionId]?.name || 'Assets';
+
+                    catChartData = {
+                        labels: Object.keys(categoryCounts),
+                        datasets: [{
+                            label: regionName,
+                            data: Object.values(categoryCounts),
+                            backgroundColor: regionColor,
+                            borderRadius: 4
+                        }]
+                    };
+                    catChartOptions = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                backgroundColor: '#1e293b',
+                                titleColor: '#fff',
+                                bodyColor: '#94a3b8',
+                                borderColor: '#334155',
+                                borderWidth: 1,
+                                padding: 12
                             }
                         },
-                        tooltip: {
-                            backgroundColor: '#1e293b',
-                            titleColor: '#fff',
-                            bodyColor: '#94a3b8',
-                            borderColor: '#334155',
-                            borderWidth: 1,
-                            padding: 12,
-                            callbacks: {
-                                title: ctx => ctx[0].label,
-                                label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y}`
+                        scales: {
+                            x: {
+                                ticks: { color: '#94a3b8' },
+                                grid: { display: false }
+                            },
+                            y: {
+                                ticks: { color: '#94a3b8' },
+                                grid: { color: '#334155' }
                             }
                         }
-                    },
-                    scales: {
-                        x: {
-                            stacked: true,
-                            ticks: { color: '#94a3b8' },
-                            grid: { display: false }
-                        },
-                        y: {
-                            stacked: true,
-                            ticks: { color: '#94a3b8' },
-                            grid: { color: '#334155' }
-                        }
-                    }
-                };
+                    };
+                }
 
-            } else {
-                // ── SINGLE REGION: simple bar with region colour ─────────────
-                const categoryCounts = {};
-                (categoryData || []).forEach(asset => {
-                    const catName = asset.category?.name || 'Uncategorized';
-                    categoryCounts[catName] = (categoryCounts[catName] || 0) + 1;
+                categoryChartInstance = new Chart(document.getElementById('category-chart'), {
+                    type: 'bar',
+                    data: catChartData,
+                    options: catChartOptions
                 });
-
-                const regionColor = getRegionColor(selectedRegionId);
-                const regionName  = regionsMap[selectedRegionId]?.name || 'Assets';
-
-                catChartData = {
-                    labels: Object.keys(categoryCounts),
-                    datasets: [{
-                        label: regionName,
-                        data: Object.values(categoryCounts),
-                        backgroundColor: regionColor,
-                        borderRadius: 4
-                    }]
-                };
-                catChartOptions = {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        },
-                        tooltip: {
-                            backgroundColor: '#1e293b',
-                            titleColor: '#fff',
-                            bodyColor: '#94a3b8',
-                            borderColor: '#334155',
-                            borderWidth: 1,
-                            padding: 12
-                        }
-                    },
-                    scales: {
-                        x: {
-                            ticks: { color: '#94a3b8' },
-                            grid: { display: false }
-                        },
-                        y: {
-                            ticks: { color: '#94a3b8' },
-                            grid: { color: '#334155' }
-                        }
-                    }
-                };
-            }
-
-            categoryChartInstance = new Chart(document.getElementById('category-chart'), {
-                type: 'bar',
-                data: catChartData,
-                options: catChartOptions
-            });
             } catch (error) {
                 console.error('Error loading charts:', error);
             }
@@ -1578,7 +1644,7 @@
                                     size: 12
                                 },
                                 callbacks: {
-                                    title: function(context) {
+                                    title: function (context) {
                                         return context[0].label;
                                     }
                                 }
@@ -1611,7 +1677,7 @@
                                         size: 11
                                     },
                                     stepSize: Math.ceil(maxCount / 5),
-                                    callback: function(value) {
+                                    callback: function (value) {
                                         return Number.isInteger(value) ? value : '';
                                     }
                                 }
@@ -1877,14 +1943,15 @@
                 // Check warranty expiring (with error handling)
                 try {
                     // Note: View v_warranty_expiring may not exist yet
-                   let wQuery = supabase
+                    let wQuery = supabase
                         .schema('m88_it_assets')
                         .from('v_warranty_expiring')
                         .select('*');
 
 
                     wQuery = applyRegionFilter(wQuery);
-                    const { data: warrantyExpiring } = await wQuery.limit(3);
+                    const { data: warrantyExpiring, error } = await wQuery;
+                    if (error) throw error;
 
                     if (warrantyExpiring?.length) {
                         alerts.push({
@@ -1903,7 +1970,7 @@
                 // Check refresh due (with error handling)
                 try {
                     // Note: View v_assets_refresh_due may not exist yet
-                   let rQuery = supabase
+                    let rQuery = supabase
                         .schema('m88_it_assets')
                         .from('v_assets_refresh_due')
                         .select('*');
@@ -2038,7 +2105,7 @@
         /**
          * Switch between hardware and software dashboard views
          */
-        window.switchDashboardView = async function(view) {
+        window.switchDashboardView = async function (view) {
             if (view === currentDashboardView) return;
             currentDashboardView = view;
 
@@ -2227,7 +2294,7 @@
                                     color: '#94a3b8',
                                     padding: 15,
                                     font: { size: 12 },
-                                    generateLabels: function(chart) {
+                                    generateLabels: function (chart) {
                                         const data = chart.data;
                                         return data.labels.map((label, i) => ({
                                             text: `${label}: ${data.datasets[0].data[i]}`,
@@ -2250,7 +2317,7 @@
                     },
                     plugins: [{
                         id: 'swCenterText',
-                        beforeDraw: function(chart) {
+                        beforeDraw: function (chart) {
                             const ctx = chart.ctx;
                             const chartArea = chart.chartArea;
                             const centerX = (chartArea.left + chartArea.right) / 2;
@@ -3110,24 +3177,24 @@
         }
 
         // Expose nav functions globally
-        window.nextExecSlide = function() {
+        window.nextExecSlide = function () {
             showExecSlide(execSlideIndex + 1);
             startExecSlideTimer(); // reset timer on manual nav
         };
-        window.prevExecSlide = function() {
+        window.prevExecSlide = function () {
             showExecSlide(execSlideIndex - 1);
             startExecSlideTimer();
         };
-        window.goToExecSlide = function(idx) {
+        window.goToExecSlide = function (idx) {
             showExecSlide(idx);
             startExecSlideTimer();
         };
 
         // Global functions
-        window.showAlertDetail = async function(type) {
+        window.showAlertDetail = async function (type) {
             const modal = document.getElementById('alert-detail-modal');
             const title = document.getElementById('alert-detail-title');
-            const body  = document.getElementById('alert-detail-body');
+            const body = document.getElementById('alert-detail-body');
 
             modal.classList.remove('hidden');
             body.innerHTML = `<div class="text-center py-8 text-slate-400"><div class="spinner mx-auto mb-3"></div>Loading...</div>`;
@@ -3161,17 +3228,17 @@
                                 </thead>
                                 <tbody style="text-align: center;">
                                     ${data.map(a => {
-                                        const days = a.days_until_expiry ?? Math.ceil((new Date(a.warranty_expiry) - new Date()) / 86400000);
-                                        const urgency = days <= 30 ? 'text-red-400' : days <= 60 ? 'text-yellow-400' : 'text-slate-300';
-                                        return `<tr>
+                        const days = a.days_until_expiry ?? Math.ceil((new Date(a.warranty_expiry) - new Date()) / 86400000);
+                        const urgency = days <= 30 ? 'text-red-400' : days <= 60 ? 'text-yellow-400' : 'text-slate-300';
+                        return `<tr>
                                             <td class="font-medium text-white">${a.name || '-'}</td>
                                             <td class="text-slate-400">${a.serial_number || '-'}</td>
                                             <td>${a.category_name || '-'}</td>
                                             <td>${a.department_name || '-'}</td>
-                                            <td>${a.warranty_expiry ? new Date(a.warranty_expiry).toLocaleDateString('en-US', {month:'short',day:'2-digit',year:'numeric'}) : '-'}</td>
+                                            <td>${a.warranty_expiry ? new Date(a.warranty_expiry).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }) : '-'}</td>
                                             <td class="font-semibold ${urgency}">${days} days</td>
                                         </tr>`;
-                                    }).join('')}
+                    }).join('')}
                                 </tbody>
                             </table>
                         </div>
@@ -3206,22 +3273,21 @@
                                 </thead>
                                 <tbody style="text-align: center;">
                                     ${data.map(a => {
-                                        const age = a.age_years != null ? a.age_years : (a.purchase_date ? Math.floor((Date.now() - new Date(a.purchase_date)) / (365.25 * 86400000)) : null);
-                                        return `<tr>
+                        const age = a.age_years != null ? a.age_years : (a.purchase_date ? Math.floor((Date.now() - new Date(a.purchase_date)) / (365.25 * 86400000)) : null);
+                        return `<tr>
                                             <td class="font-medium text-white">${a.name || '-'}</td>
                                             <td class="text-slate-400">${a.serial_number || '-'}</td>
                                             <td>${a.category_name || '-'}</td>
                                             <td>${a.department_name || '-'}</td>
-                                            <td>${a.purchase_date ? new Date(a.purchase_date).toLocaleDateString('en-US', {month:'short',day:'2-digit',year:'numeric'}) : '-'}</td>
+                                            <td>${a.purchase_date ? new Date(a.purchase_date).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }) : '-'}</td>
                                             <td class="font-semibold text-yellow-400">${age != null ? age + ' yrs' : '-'}</td>
-                                            <td class="text-slate-400">${
-                                                a.suggested_refresh_date
-                                                    ? new Date(a.suggested_refresh_date).toLocaleDateString('en-US', {month:'short',day:'2-digit',year:'numeric'})
-                                                      + (a.is_refresh_date_estimated ? ' <span class="text-xs text-slate-500">(est.)</span>' : '')
-                                                    : '-'
-                                            }</td>
+                                            <td class="text-slate-400">${a.suggested_refresh_date
+                                ? new Date(a.suggested_refresh_date).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })
+                                + (a.is_refresh_date_estimated ? ' <span class="text-xs text-slate-500">(est.)</span>' : '')
+                                : '-'
+                            }</td>
                                         </tr>`;
-                                    }).join('')}
+                    }).join('')}
                                 </tbody>
                             </table>
                         </div>
@@ -3232,18 +3298,18 @@
             }
         };
 
-        window.closeAlertDetailModal = function() {
+        window.closeAlertDetailModal = function () {
             document.getElementById('alert-detail-modal').classList.add('hidden');
         };
 
-        window.toggleSidebar = function() {
+        window.toggleSidebar = function () {
             const sidebar = document.getElementById('sidebar');
             const overlay = document.getElementById('sidebar-overlay');
             sidebar.classList.toggle('open');
             overlay.classList.toggle('hidden');
         };
 
-        window.toggleNotifications = function() {
+        window.toggleNotifications = function () {
             const dropdown = document.getElementById('notifications-dropdown');
             const isHidden = dropdown.classList.contains('hidden');
             if (isHidden) {
@@ -3257,7 +3323,7 @@
             }
         };
 
-        window.markAllNotificationsRead = async function() {
+        window.markAllNotificationsRead = async function () {
             try {
                 if (typeof Notifications !== 'undefined') {
                     await Notifications.markAllAsRead();
@@ -3285,4 +3351,5 @@
         init();
     </script>
 </body>
+
 </html>
