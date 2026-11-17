@@ -511,7 +511,7 @@ const Auth = {
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         
         if (!publicPages.includes(currentPage)) {
-            window.location.href = 'index.html';
+            window.location.href = '/index.html';
         }
     },
     
@@ -523,7 +523,7 @@ const Auth = {
         const isAuth = await this.init();
         
         if (!isAuth) {
-            window.location.href = 'index.html';
+            window.location.href = '/index.html';
             return false;
         }
         
@@ -772,7 +772,7 @@ const SessionManager = {
         this.stop();
         await Auth.signOut();
         // Redirect to login with a message
-        window.location.href = 'index.html?reason=idle';
+        window.location.href = '/index.html?reason=idle';
     }
 };
 
