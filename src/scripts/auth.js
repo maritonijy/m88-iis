@@ -38,12 +38,14 @@ const Auth = {
 
         try {
             // Listen for auth state changes
-            window.supabase.auth.onAuthStateChange(async (event, session) => {
+            window.supabase.auth.onAuthStateChange((event, session) => {
                 // console.log('Auth state changed:', event);
                 
                 if (event === 'SIGNED_IN' && session) {
                     this.user = session.user;
-                    await this.loadUserProfile();
+                    setTimeout(async () => {
+                        await this.loadUserProfile();
+                    }, 0);
                     this._syncSessionManager(session);
                     this.handleAuthenticatedUser();
                 } else if (event === 'SIGNED_OUT') {
