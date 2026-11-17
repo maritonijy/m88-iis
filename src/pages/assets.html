@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IT Equipment - Madison 88 IT Asset Management</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/images/favicon.png">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Vendor Libraries (bundled from npm) -->
     <script type="module" src="../scripts/vendor-xlsx.js"></script>
-    
+
     <!-- Custom Styles (includes Tailwind via build) -->
     <link rel="stylesheet" href="../styles/styles.css">
-    
+
     <!-- Application Modules -->
     <script type="module" src="../scripts/utils.js"></script>
     <script type="module" src="../scripts/components.js"></script>
@@ -27,6 +28,7 @@
     <script type="module" src="../scripts/auth.js"></script>
     <script type="module" src="../scripts/assets.js"></script>
 </head>
+
 <body>
     <!-- =============================================
          LOADING SCREEN
@@ -44,7 +46,7 @@
     <div class="app-layout hidden" id="app">
         <!-- Sidebar Overlay (Mobile) -->
         <div id="sidebar-overlay" class="hidden" onclick="toggleSidebar()"></div>
-        
+
         <!-- =========================================
              SIDEBAR
              ========================================= -->
@@ -56,7 +58,7 @@
                     <h1>IT Equipment Inventory Management System</h1>
                 </a>
             </div>
-            
+
             <!-- Navigation -->
             <nav class="sidebar-nav">
                 <!-- Main -->
@@ -64,94 +66,106 @@
                     <p class="nav-section-title">Main</p>
                     <a href="dashboard.html" class="nav-link">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                         </svg>
                         Dashboard
                     </a>
                 </div>
-                
+
                 <!-- Asset Management -->
                 <div class="nav-section" id="asset-management-nav">
                     <p class="nav-section-title">Asset Management</p>
                     <a href="assets.html" class="nav-link active">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                         IT Equipment Inventory
                     </a>
                     <a href="software-licenses.html" class="nav-link">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                         </svg>
                         Software Licenses
                     </a>
                     <a href="employees.html" class="nav-link">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                         </svg>
                         Employees
                     </a>
                     <a href="assignments.html" class="nav-link">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                         </svg>
                         Assignments
                     </a>
                 </div>
-                
+
                 <!-- Tracking -->
                 <div class="nav-section" id="tracking-nav">
                     <p class="nav-section-title">Asset Tracking</p>
                     <a href="maintenance.html" class="nav-link">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                         Asset Maintenance
                     </a>
                     <a href="lost-assets.html" class="nav-link">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                         </svg>
                         Lost Assets
                     </a>
                 </div>
-                
+
                 <!-- Reports -->
                 <div class="nav-section" id="reports-nav">
                     <p class="nav-section-title">Reports</p>
                     <a href="reports.html" class="nav-link">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
                         Export Reports
                     </a>
                     <a href="audit-logs.html" class="nav-link" id="audit-logs-link">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
                         Audit Logs
                     </a>
                 </div>
-                
+
                 <!-- Admin -->
                 <div class="nav-section" id="admin-nav">
                     <p class="nav-section-title">Administration</p>
                     <a href="settings.html" class="nav-link">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                         </svg>
                         Settings
                     </a>
                     <a href="user-maintenance.html" class="nav-link" id="user-maintenance-link">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                         </svg>
                         User Maintenance
                     </a>
                 </div>
             </nav>
-            
+
             <!-- User Info -->
             <div class="sidebar-footer">
                 <div class="flex items-center gap-3">
@@ -164,7 +178,8 @@
                     </div>
                     <button onclick="handleLogout()" class="text-slate-400 hover:text-white" title="Logout">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                         </svg>
                     </button>
                 </div>
@@ -178,9 +193,11 @@
             <!-- Top Bar -->
             <header class="topbar">
                 <div class="topbar-left">
-                    <button id="menu-toggle" class="lg:hidden text-slate-400 hover:text-white" onclick="toggleSidebar()">
+                    <button id="menu-toggle" class="lg:hidden text-slate-400 hover:text-white"
+                        onclick="toggleSidebar()">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
                     <h2 class="text-lg font-semibold text-white">IT Equipment</h2>
@@ -189,15 +206,20 @@
                 <div class="topbar-right" id="admin-actions-topbar">
                     <div id="admin-actions-import">
                         <button class="btn btn-secondary" onclick="showAssetImportInfo()">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                            </svg>
                             Import Assets
                         </button>
-                        <input type="file" id="import-file" accept=".csv,.xlsx,.xls" style="display: none;" onchange="handleImportAssets(event)">
-                        <input type="file" id="import-file-basic" accept=".csv,.xlsx,.xls" style="display: none;" onchange="handleBasicImportAssets(event)">
+                        <input type="file" id="import-file" accept=".csv,.xlsx,.xls" style="display: none;"
+                            onchange="handleImportAssets(event)">
+                        <input type="file" id="import-file-basic" accept=".csv,.xlsx,.xls" style="display: none;"
+                            onchange="handleBasicImportAssets(event)">
                     </div>
                     <button class="btn btn-primary" onclick="openAssetModal()">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                         </svg>
                         Add Asset
                     </button>
@@ -220,25 +242,22 @@
                             <div class="lg:col-span-2">
                                 <div class="search-input">
                                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                     </svg>
-                                    <input 
-                                        type="text" 
-                                        id="search-input" 
-                                        class="form-input pl-10" 
+                                    <input type="text" id="search-input" class="form-input pl-10"
                                         placeholder="Search by asset tag, name, serial..."
-                                        oninput="handleSearch(this.value)"
-                                    >
+                                        oninput="handleSearch(this.value)">
                                 </div>
                             </div>
-                            
+
                             <!-- Region Filter (Exec+Admin only) -->
                             <div id="region-filter-container" class="hidden">
                                 <select id="region-filter" class="form-select" onchange="handleFilter()">
                                     <option value="">All My Regions</option>
                                 </select>
                             </div>
-                            
+
                             <!-- Status Filter -->
                             <div>
                                 <select id="status-filter" class="form-select" onchange="handleFilter()">
@@ -251,7 +270,7 @@
                                     <option value="decommissioned">Decommissioned</option>
                                 </select>
                             </div>
-                            
+
                             <!-- Category Filter -->
                             <div>
                                 <select id="category-filter" class="form-select" onchange="handleFilter()">
@@ -292,7 +311,7 @@
                             </tbody>
                         </table>
                     </div>
-                    
+
                     <!-- Pagination -->
                     <div class="card-footer">
                         <div class="flex items-center justify-between">
@@ -318,22 +337,24 @@
                 <h3 class="modal-title" id="modal-title">Add New Asset</h3>
                 <button onclick="closeAssetModal()" class="text-slate-400 hover:text-white">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
             <form id="asset-form" onsubmit="handleAssetSubmit(event)">
                 <div class="modal-body">
                     <input type="hidden" id="asset-id">
-                    
+
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <!-- Asset Name -->
                         <div class="form-group md:col-span-2">
                             <label class="form-label" for="asset-name">Asset Name *</label>
-                            <input type="text" id="asset-name" class="form-input" maxlength="25" placeholder="e.g., Dell Latitude 5520" required>
+                            <input type="text" id="asset-name" class="form-input" maxlength="25"
+                                placeholder="e.g., Dell Latitude 5520" required>
                             <p class="text-xs text-slate-400 mt-1">Maximum 25 characters</p>
                         </div>
-                        
+
                         <!-- Category -->
                         <div class="form-group">
                             <label class="form-label" for="asset-category">Category *</label>
@@ -341,38 +362,42 @@
                                 <option value="">Select Category</option>
                             </select>
                         </div>
-                        
+
                         <!-- Location (auto-populated from user's region) -->
                         <div class="form-group">
                             <label class="form-label" for="asset-location-display">Location</label>
-                            <input type="text" id="asset-location-display" class="form-input bg-slate-700 cursor-not-allowed" readonly
+                            <input type="text" id="asset-location-display"
+                                class="form-input bg-slate-700 cursor-not-allowed" readonly
                                 title="This field automatically populates according to what region you are assigned to">
                             <input type="hidden" id="asset-location">
                             <p class="text-xs text-slate-400 mt-1">Auto-assigned based on your region</p>
                         </div>
-                        
+
                         <!-- Brand -->
                         <div class="form-group">
                             <label class="form-label" for="asset-brand">Brand</label>
-                            <input type="text" id="asset-brand" class="form-input" maxlength="25" placeholder="e.g., Dell, HP, Lenovo">
+                            <input type="text" id="asset-brand" class="form-input" maxlength="25"
+                                placeholder="e.g., Dell, HP, Lenovo">
                             <p class="text-xs text-slate-400 mt-1">Max 25 characters</p>
                         </div>
-                        
+
                         <!-- Model -->
                         <div class="form-group">
                             <label class="form-label" for="asset-model">Model</label>
-                            <input type="text" id="asset-model" class="form-input" maxlength="25" placeholder="e.g., Latitude 5520">
+                            <input type="text" id="asset-model" class="form-input" maxlength="25"
+                                placeholder="e.g., Latitude 5520">
                             <p class="text-xs text-slate-400 mt-1">Max 25 characters</p>
                         </div>
-                        
+
                         <!-- Serial Number -->
                         <div class="form-group">
                             <label class="form-label" for="asset-serial">Serial Number *</label>
-                            <input type="text" id="asset-serial" class="form-input" maxlength="25" placeholder="Serial number" style="text-transform: uppercase" required>
+                            <input type="text" id="asset-serial" class="form-input" maxlength="25"
+                                placeholder="Serial number" style="text-transform: uppercase" required>
                             <p class="text-xs text-slate-400 mt-1">Maximum 25 characters (uppercase only)</p>
                             <p id="serial-error" class="text-xs text-red-400 mt-1 hidden"></p>
                         </div>
-                        
+
                         <!-- Status -->
                         <div class="form-group">
                             <label class="form-label" for="asset-status">Status *</label>
@@ -384,43 +409,48 @@
                                 <option value="damaged">Damaged</option>
                                 <option value="decommissioned">Decommissioned</option>
                             </select>
-                            <p id="status-help-text" class="text-xs text-slate-400 mt-1" style="display: none;">New assets must be marked as Available</p>
+                            <p id="status-help-text" class="text-xs text-slate-400 mt-1" style="display: none;">New
+                                assets must be marked as Available</p>
                         </div>
-                        
+
                         <!-- Purchase Date -->
                         <div class="form-group">
                             <label class="form-label" for="asset-purchase-date">Purchase Date</label>
                             <input type="date" id="asset-purchase-date" class="form-input">
                         </div>
-                        
+
                         <!-- Purchase Cost -->
                         <div class="form-group">
-                            <label class="form-label" for="asset-purchase-cost" id="purchase-cost-label">Purchase Cost</label>
-                            <input type="number" id="asset-purchase-cost" class="form-input" placeholder="0.00" step="0.01" min="0">
+                            <label class="form-label" for="asset-purchase-cost" id="purchase-cost-label">Purchase
+                                Cost</label>
+                            <input type="number" id="asset-purchase-cost" class="form-input" placeholder="0.00"
+                                step="0.01" min="0">
                         </div>
-                        
+
                         <!-- Warranty Expiry -->
                         <div class="form-group">
                             <label class="form-label" for="asset-warranty">Warranty Expiry</label>
                             <input type="date" id="asset-warranty" class="form-input">
                         </div>
-                        
+
                         <!-- Refresh Date -->
                         <div class="form-group">
                             <label class="form-label" for="asset-refresh">Refresh Date</label>
                             <input type="date" id="asset-refresh" class="form-input">
                         </div>
-                        
+
                         <!-- Specifications -->
                         <div class="form-group md:col-span-2">
                             <label class="form-label" for="asset-specs">Specifications</label>
-                            <textarea id="asset-specs" class="form-textarea" rows="2" placeholder="CPU, RAM, Storage, etc."></textarea>
+                            <textarea id="asset-specs" class="form-textarea" rows="2"
+                                placeholder="CPU, RAM, Storage, etc."></textarea>
                         </div>
-                        
+
                         <!-- Notes -->
                         <div class="form-group md:col-span-2">
                             <label class="form-label" for="asset-notes">Notes</label>
-                            <textarea id="asset-notes" class="form-textarea" rows="2" placeholder="Additional notes..."></textarea>
+                            <textarea id="asset-notes" class="form-textarea" rows="2"
+                                placeholder="Additional notes..."></textarea>
                         </div>
                     </div>
                 </div>
@@ -474,11 +504,11 @@
         import { showToast } from '../scripts/components.js';
         import { ExportManager } from '../scripts/export.js';
         import Utils from '../scripts/utils.js';
-        
+
         // DOM Elements
         const loadingScreen = document.getElementById('loading-screen');
         const app = document.getElementById('app');
-        
+
         // State
         let currentUser = null;
         let assetManager = null;
@@ -490,7 +520,7 @@
         let deleteAssetId = null;
         let userRegionName = '';
         let userRegionLocationId = null;
-        
+
         // Use the Assets module from assets.js (already available globally)
         const Assets = window.Assets || AssetManager;
 
@@ -500,10 +530,10 @@
         async function init() {
             try {
                 // console.log('🚀 Starting assets page init...');
-                
+
                 // Check authentication
                 const { data: { session } } = await supabase.auth.getSession();
-                
+
                 if (!session) {
                     window.location.href = '/index.html';
                     return;
@@ -518,7 +548,7 @@
 
                 currentUser = { ...session.user, ...profile };
                 updateUserInfo(currentUser);
-                
+
                 // Set Auth.user for Assets module to use
                 Auth.user = session.user;
                 Auth.profile = profile;
@@ -530,7 +560,7 @@
                 const currLabel = Utils.getCurrencyLabel();
                 const purchaseCostLabel = document.getElementById('purchase-cost-label');
                 if (purchaseCostLabel) purchaseCostLabel.textContent = `Purchase Cost (${currLabel})`;
-                
+
                 // Redirect viewers and pure executives to dashboard (exec+admin can access)
                 if (currentUser.role === 'viewer' || (currentUser.role === 'executive' && !currentUser.isExecAdmin)) {
                     window.location.href = 'dashboard.html';
@@ -567,7 +597,7 @@
                             .select('setting_value')
                             .eq('setting_key', 'it_staff_can_import_data')
                             .single();
-                        
+
                         if (setting && setting.setting_value === 'false') {
                             // Hide import button for IT staff
                             const importActions = document.getElementById('admin-actions-import');
@@ -595,39 +625,39 @@
                 // Add real-time serial number validation
                 const serialInput = document.getElementById('asset-serial');
                 const serialError = document.getElementById('serial-error');
-                
+
                 // Convert serial number to uppercase on input and clear errors
-                serialInput.addEventListener('input', function() {
+                serialInput.addEventListener('input', function () {
                     this.value = this.value.toUpperCase();
                     if (this.value.trim() !== '') {
                         serialError.classList.add('hidden');
                         this.classList.remove('border-red-500');
                     }
                 });
-                
-                serialInput.addEventListener('blur', async function() {
+
+                serialInput.addEventListener('blur', async function () {
                     const serialNumber = this.value.trim();
-                    
+
                     if (!serialNumber) {
                         serialError.classList.add('hidden');
                         serialInput.classList.remove('border-red-500');
                         return;
                     }
-                    
+
                     try {
                         let query = supabase
                             .from('assets')
                             .select('id, name, asset_tag')
                             .eq('serial_number', serialNumber);
-                        
+
                         // If editing, exclude current asset
                         const assetId = document.getElementById('asset-id').value;
                         if (assetId) {
                             query = query.neq('id', assetId);
                         }
-                        
+
                         const { data: existingAssets, error } = await query;
-                        
+
                         if (!error && existingAssets && existingAssets.length > 0) {
                             const existing = existingAssets[0];
                             serialError.textContent = `⚠ This serial number is already used by: ${existing.name} (${existing.asset_tag || 'ID: ' + existing.id})`;
@@ -678,15 +708,15 @@
                 const { data: cats, error: catError } = await supabase.from('asset_categories').select('*').order('name');
                 if (catError) console.error('Error loading categories:', catError);
                 categories = cats || [];
-                
+
                 const categoryFilter = document.getElementById('category-filter');
                 const assetCategory = document.getElementById('asset-category');
-                
+
                 // Show all categories in filter (including inactive)
                 categories.forEach(cat => {
                     categoryFilter.innerHTML += `<option value="${cat.id}">${cat.name}</option>`;
                 });
-                
+
                 // Show only active categories in asset form
                 const activeCategories = categories.filter(cat => cat.is_active !== false);
                 activeCategories.forEach(cat => {
@@ -707,7 +737,7 @@
             try {
 
                 let query = supabase
-                    .schema('public')
+                    .schema('m88_it_assets')
                     .from('v_assets_full')
                     .select('*', { count: 'exact' });
 
@@ -741,9 +771,9 @@
                 }
 
                 totalPages = Math.ceil((count || 0) / pageSize);
-                
+
                 document.getElementById('assets-count').textContent = `(${count || 0} items)`;
-                document.getElementById('pagination-info').textContent = 
+                document.getElementById('pagination-info').textContent =
                     `Showing ${from + 1}-${Math.min(to + 1, count || 0)} of ${count || 0} IT Equipment`;
 
                 if (!assets?.length) {
@@ -787,7 +817,7 @@
                         </td>
                         <td>
                             <span class="text-sm ${asset.warranty_expiry && new Date(asset.warranty_expiry) < new Date() ? 'text-red-400' : 'text-slate-300'}">
-                                ${asset.warranty_expiry ? new Date(asset.warranty_expiry).toLocaleDateString('en-US', {month: '2-digit', day: '2-digit', year: 'numeric'}) : '-'}
+                                ${asset.warranty_expiry ? new Date(asset.warranty_expiry).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' }) : '-'}
                             </span>
                         </td>
                         <td class="text-right">
@@ -891,20 +921,20 @@
         }
 
         // Global functions
-        window.toggleSidebar = function() {
+        window.toggleSidebar = function () {
             document.getElementById('sidebar').classList.toggle('open');
             document.getElementById('sidebar-overlay').classList.toggle('hidden');
         };
 
         window.handleLogout = () => Utils.confirmLogout(supabase);
 
-        window.handleSearch = function(value) {
+        window.handleSearch = function (value) {
             searchTerm = value;
             currentPage = 1;
             loadAssets();
         };
 
-        window.handleFilter = function() {
+        window.handleFilter = function () {
             filters = {
                 status: document.getElementById('status-filter').value,
                 category: document.getElementById('category-filter').value
@@ -913,34 +943,34 @@
             loadAssets();
         };
 
-        window.changePage = function(page) {
+        window.changePage = function (page) {
             if (page >= 1 && page <= totalPages) {
                 currentPage = page;
                 loadAssets();
             }
         };
 
-        window.openAssetModal = function(assetId = null) {
+        window.openAssetModal = function (assetId = null) {
             document.getElementById('asset-form').reset();
             document.getElementById('asset-id').value = '';
             originalAssetStatus = null; // Reset for new asset
             window.currentAssetCategory = '';
-            
+
             // Set Location field to user's region (read-only)
             document.getElementById('asset-location-display').value = userRegionName || 'No region assigned';
             document.getElementById('asset-location').value = userRegionLocationId || '';
-            
+
             // Clear serial number error
             const serialError = document.getElementById('serial-error');
             const serialInput = document.getElementById('asset-serial');
             serialError.classList.add('hidden');
             serialInput.classList.remove('border-red-500');
-            
+
             // For new assets, restrict status to "Available" only
             const statusSelect = document.getElementById('asset-status');
             const statusHelpText = document.getElementById('status-help-text');
             const statusOptions = statusSelect.querySelectorAll('option');
-            
+
             // Hide all options except "Available"
             statusOptions.forEach(option => {
                 if (option.value === 'available') {
@@ -950,23 +980,23 @@
                     option.style.display = 'none';
                 }
             });
-            
+
             statusSelect.disabled = true;
             statusSelect.classList.add('bg-slate-700', 'cursor-not-allowed');
             statusHelpText.style.display = 'block';
-            
+
             document.getElementById('modal-title').textContent = 'Add New Asset';
             document.getElementById('save-btn').textContent = 'Save Asset';
             document.getElementById('asset-modal').classList.remove('hidden');
         };
 
-        window.closeAssetModal = function() {
+        window.closeAssetModal = function () {
             document.getElementById('asset-modal').classList.add('hidden');
         };
 
         let originalAssetStatus = null; // Track original status for validation
-        
-        window.editAsset = async function(id) {
+
+        window.editAsset = async function (id) {
             try {
                 const { data: asset, error } = await supabase
                     .from('assets')
@@ -978,30 +1008,30 @@
 
                 // Store original status for validation
                 originalAssetStatus = asset.status;
-                
+
                 // Clear serial number error
                 const serialError = document.getElementById('serial-error');
                 const serialInput = document.getElementById('asset-serial');
                 serialError.classList.add('hidden');
                 serialInput.classList.remove('border-red-500');
-                
+
                 // Get category name from already-loaded categories array
                 window.currentAssetCategory = '';
                 if (asset.category_id && categories.length > 0) {
                     const category = categories.find(cat => cat.id === asset.category_id);
                     window.currentAssetCategory = category?.name || '';
                 }
-                
+
                 // For editing existing assets, enable status dropdown and show all options
                 const statusSelect = document.getElementById('asset-status');
                 const statusHelpText = document.getElementById('status-help-text');
                 const statusOptions = statusSelect.querySelectorAll('option');
-                
+
                 // Show all status options
                 statusOptions.forEach(option => {
                     option.style.display = '';
                 });
-                
+
                 statusSelect.disabled = false;
                 statusSelect.classList.remove('bg-slate-700', 'cursor-not-allowed');
                 statusHelpText.style.display = 'none';
@@ -1046,27 +1076,27 @@
                     if (categoryName === 'Access Point' || categoryName === 'Printer') {
                         return true; // Allow direct assignment
                     }
-                    
+
                     showToast('This asset will automatically be in assigned status if the asset is assigned in the "Assignments Tab."', 'info');
                     return false;
                 }
-                
+
                 // 2. Available → Under Repair
                 if (newStatus === 'under_repair') {
                     showToast('This asset will automatically be marked as "Under Repair" when a maintenance record is created in the Maintenance Tab', 'info');
                     return false;
                 }
-                
+
                 // 3. Available → Lost
                 if (newStatus === 'lost') {
                     showToast('Lost assets need to be submitted on the Lost Asset Report Logs', 'info');
                     return false;
                 }
-                
+
                 // 4. Available → Damaged
                 if (newStatus === 'damaged') {
                     const initialConfirm = confirm('Damaged asset must be subject for maintenance immediately. If the asset is not a priority for a fix yet, then you can mark this damage for the meantime.\n\nIs this asset NOT a priority for maintenance?');
-                    
+
                     if (initialConfirm) {
                         // User confirmed it's NOT a priority - allow damaged status
                         return true;
@@ -1076,14 +1106,14 @@
                         return false;
                     }
                 }
-                
+
                 // 5. Available → Decommissioned
                 if (newStatus === 'decommissioned') {
                     const proceed = confirm('Decommissioned assets will not be subject for available status, assigned status, under repair status, lost status, and damaged status.\n\nProceed to making this asset decommissioned?');
                     return proceed; // True if user confirms, false otherwise
                 }
             }
-            
+
             // ========================================
             // VALIDATIONS FROM 'ASSIGNED' STATUS
             // ========================================
@@ -1098,23 +1128,23 @@
                     showToast('Asset must be returned first in the Assignments Tab to make it available.', 'warning');
                     return false;
                 }
-                
+
                 // 2. Assigned → Under Repair (INFO)
                 if (newStatus === 'under_repair') {
                     showToast('This asset will automatically be marked as "Under Repair" when a maintenance record is created in the Maintenance Tab', 'info');
                     return false;
                 }
-                
+
                 // 3. Assigned → Lost (INFO - direct to Lost Assets Tab)
                 if (newStatus === 'lost') {
                     showToast('Lost assets need to be reported in the Lost Assets Tab. The asset will remain tagged to the liable employee.', 'info');
                     return false;
                 }
-                
+
                 // 4. Assigned → Damaged
                 if (newStatus === 'damaged') {
                     const notPriority = confirm('Damaged asset must be subject for maintenance immediately. If the asset is not a priority for a fix yet, then you can mark this damage for the meantime.\n\nIs this asset NOT a priority for maintenance?');
-                    
+
                     if (notPriority) {
                         // User confirmed it's NOT a priority - allow damaged status, assignment stays active
                         showToast('Asset marked as damaged. Assignment remains active.', 'info');
@@ -1125,14 +1155,14 @@
                         return false;
                     }
                 }
-                
+
                 // 5. Assigned → Decommissioned (BLOCKED)
                 if (newStatus === 'decommissioned') {
                     showToast('Asset must be returned first in the Assignments Tab before it can be decommissioned.', 'warning');
                     return false;
                 }
             }
-            
+
             // ========================================
             // VALIDATIONS FROM 'UNDER_REPAIR' STATUS
             // ========================================
@@ -1142,32 +1172,32 @@
                     showToast('This asset will be available once the maintenance log is completed in the Maintenance Tab.', 'info');
                     return false;
                 }
-                
+
                 // 2. Under Repair → Assigned
                 if (newStatus === 'assigned') {
                     showToast('This asset will automatically be in assigned status (if this asset was assigned before maintenance) once the maintenance log is completed in the Maintenance Tab.', 'info');
                     return false;
                 }
-                
+
                 // 3. Under Repair → Lost (BLOCKED)
                 if (newStatus === 'lost') {
                     showToast('This is not allowed. Asset cannot be marked as lost while under maintenance.', 'warning');
                     return false;
                 }
-                
+
                 // 4. Under Repair → Damaged (BLOCKED)
                 if (newStatus === 'damaged') {
                     showToast('This is not allowed. Asset cannot be marked as damaged while under repair.', 'warning');
                     return false;
                 }
-                
+
                 // 5. Under Repair → Decommissioned (BLOCKED)
                 if (newStatus === 'decommissioned') {
                     showToast('Mark the asset as completed or cannot repair first in the Maintenance Tab before making the asset decommissioned.', 'warning');
                     return false;
                 }
             }
-            
+
             // ========================================
             // VALIDATIONS FROM 'LOST' STATUS
             // ========================================
@@ -1177,32 +1207,32 @@
                     showToast('This asset must be resolved and found first in the Lost Assets Tab so it can be available again.', 'warning');
                     return false;
                 }
-                
+
                 // 2. Lost → Assigned (BLOCKED)
                 if (newStatus === 'assigned') {
                     showToast('This asset cannot be assigned since it is lost. Resolve the lost asset report first in the Lost Assets Tab.', 'warning');
                     return false;
                 }
-                
+
                 // 3. Lost → Under Repair (BLOCKED)
                 if (newStatus === 'under_repair') {
                     showToast('This is not allowed. Asset cannot be under maintenance if it is lost.', 'warning');
                     return false;
                 }
-                
+
                 // 4. Lost → Damaged (BLOCKED)
                 if (newStatus === 'damaged') {
                     showToast('This is not allowed. Asset cannot be marked as damaged when it is lost.', 'warning');
                     return false;
                 }
-                
+
                 // 5. Lost → Decommissioned
                 if (newStatus === 'decommissioned') {
                     const proceed = confirm('Decommissioned assets will not be subject for available status, assigned status, under repair status, lost status, and damaged status.\n\nProceed to making this asset decommissioned?');
                     return proceed; // True if user confirms, false to keep lost status
                 }
             }
-            
+
             // ========================================
             // VALIDATIONS FROM 'DAMAGED' STATUS
             // ========================================
@@ -1212,32 +1242,32 @@
                     showToast('This asset will be available if it undergoes maintenance and the maintenance is already completed in the Maintenance Tab.', 'info');
                     return false;
                 }
-                
+
                 // 2. Damaged → Assigned (BLOCKED)
                 if (newStatus === 'assigned') {
                     showToast('This asset cannot be assigned since it is damaged. Complete maintenance first or mark as decommissioned.', 'warning');
                     return false;
                 }
-                
+
                 // 3. Damaged → Under Repair
                 if (newStatus === 'under_repair') {
                     showToast('This asset will automatically be in under repair status if the damaged asset is already reported in the Maintenance Tab.', 'info');
                     return false;
                 }
-                
+
                 // 4. Damaged → Lost (BLOCKED)
                 if (newStatus === 'lost') {
                     showToast('This is not allowed. Instead, consider marking this asset as decommissioned.', 'warning');
                     return false;
                 }
-                
+
                 // 5. Damaged → Decommissioned
                 if (newStatus === 'decommissioned') {
                     const proceed = confirm('Decommissioned assets will not be subject for available status, assigned status, under repair status, lost status, and damaged status.\n\nProceed to making this asset decommissioned?');
                     return proceed; // True if user confirms, false to keep damaged status
                 }
             }
-            
+
             // ========================================
             // VALIDATIONS FROM 'DECOMMISSIONED' STATUS
             // ========================================
@@ -1247,49 +1277,49 @@
                     showToast('This is not allowed. Asset is already decommissioned and cannot be made available.', 'warning');
                     return false;
                 }
-                
+
                 // 2. Decommissioned → Assigned (BLOCKED)
                 if (newStatus === 'assigned') {
                     showToast('This is not allowed. Asset is already decommissioned and cannot be assigned.', 'warning');
                     return false;
                 }
-                
+
                 // 3. Decommissioned → Under Repair (BLOCKED)
                 if (newStatus === 'under_repair') {
                     showToast('This is not allowed. Asset is already decommissioned and cannot be under repair. Maintenance logs are not available for decommissioned assets.', 'warning');
                     return false;
                 }
-                
+
                 // 4. Decommissioned → Lost (BLOCKED)
                 if (newStatus === 'lost') {
                     showToast('This is not allowed. Asset is already decommissioned and cannot be marked as lost.', 'warning');
                     return false;
                 }
-                
+
                 // 5. Decommissioned → Damaged (BLOCKED)
                 if (newStatus === 'damaged') {
                     showToast('This is not allowed. Asset is already decommissioned and cannot be marked as damaged.', 'warning');
                     return false;
                 }
             }
-            
+
             return true; // Allow other status changes
         }
 
-        window.handleAssetSubmit = async function(event) {
+        window.handleAssetSubmit = async function (event) {
             event.preventDefault();
 
             const assetId = document.getElementById('asset-id').value;
             const newStatus = document.getElementById('asset-status').value;
             const categoryId = document.getElementById('asset-category').value;
-            
+
             // Validation: New assets MUST have "available" status
             if (!assetId && newStatus !== 'available') {
                 showToast('New assets can only be marked as Available. Other statuses are for existing assets only.', 'error');
                 document.getElementById('asset-status').value = 'available';
                 return;
             }
-            
+
             // Status change validation (when editing and status changes)
             if (assetId && originalAssetStatus && newStatus !== originalAssetStatus) {
                 // Get category name for validation from already-loaded categories array
@@ -1298,7 +1328,7 @@
                     const category = categories.find(cat => cat.id === categoryId);
                     categoryName = category?.name || '';
                 }
-                
+
                 // Validate status change
                 const shouldProceed = await validateStatusChange(newStatus, categoryName, originalAssetStatus);
                 if (!shouldProceed) {
@@ -1307,7 +1337,7 @@
                     return; // User cancelled or validation failed
                 }
             }
-            
+
             // Check if trying to decommission an assigned asset
             if (assetId && newStatus === 'decommissioned') {
                 try {
@@ -1317,9 +1347,9 @@
                         .select('id, employee_id, employees(full_name)')
                         .eq('asset_id', assetId)
                         .is('returned_date', null);
-                    
+
                     if (error) throw error;
-                    
+
                     if (assignments && assignments.length > 0) {
                         const employeeNames = assignments.map(a => a.employees?.full_name || 'Unknown').join(', ');
                         showToast(`Cannot decommission: Asset is currently assigned to ${employeeNames}. Please return the asset first.`, 'warning');
@@ -1331,7 +1361,7 @@
                     return;
                 }
             }
-            
+
             const assetData = {
                 name: document.getElementById('asset-name').value,
                 category_id: document.getElementById('asset-category').value || null,
@@ -1355,14 +1385,14 @@
                         .from('assets')
                         .select('id, name, asset_tag')
                         .eq('serial_number', assetData.serial_number);
-                    
+
                     // If editing, exclude current asset from check
                     if (assetId) {
                         query = query.neq('id', assetId);
                     }
-                    
+
                     const { data: existingAssets, error: checkError } = await query;
-                    
+
                     if (checkError) {
                         console.error('Error checking serial number:', checkError);
                     } else if (existingAssets && existingAssets.length > 0) {
@@ -1385,7 +1415,7 @@
 
             // Get submit button
             const submitBtn = event.target.querySelector('button[type="submit"]');
-            
+
             // Handle form submission with loading state
             await Utils.handleFormSubmit(submitBtn, async () => {
                 if (assetId) {
@@ -1405,18 +1435,18 @@
             }, assetId ? 'Updating...' : 'Saving...');
         };
 
-        window.deleteAsset = function(id, assetTag) {
+        window.deleteAsset = function (id, assetTag) {
             deleteAssetId = id;
             document.getElementById('delete-asset-info').textContent = `Asset: ${assetTag}`;
             document.getElementById('delete-modal').classList.remove('hidden');
         };
 
-        window.closeDeleteModal = function() {
+        window.closeDeleteModal = function () {
             document.getElementById('delete-modal').classList.add('hidden');
             deleteAssetId = null;
         };
 
-        window.confirmDelete = async function() {
+        window.confirmDelete = async function () {
             if (!deleteAssetId) return;
 
             try {
@@ -1434,12 +1464,12 @@
             }
         };
 
-        window.exportAssets = async function(format) {
+        window.exportAssets = async function (format) {
             try {
                 showLoadingModal('Exporting Assets', 'Preparing data for export...');
-                
+
                 let exportQuery = supabase
-                    .schema('public')
+                    .schema('m88_it_assets')
                     .from('v_assets_full')
                     .select('*')
                     .order('created_at', { ascending: false });
@@ -1449,10 +1479,10 @@
                 const { data: assets } = await exportQuery;
 
                 document.getElementById('loading-message').textContent = 'Generating Excel file...';
-                
+
                 const exportManager = new ExportManager();
                 await exportManager.exportToExcel(assets, 'assets', 'IT_Assets');
-                
+
                 hideLoadingModal();
                 showToast('Export completed successfully', 'success');
             } catch (error) {
@@ -1461,7 +1491,7 @@
             }
         };
 
-        window.showAssetImportInfo = async function() {
+        window.showAssetImportInfo = async function () {
             if (window.Import && typeof window.Import.showImportChoice === 'function') {
                 const choice = await window.Import.showImportChoice('assets');
                 if (choice === 'basic') {
@@ -1482,7 +1512,7 @@
             }
         };
 
-        window.handleBasicImportAssets = async function(event) {
+        window.handleBasicImportAssets = async function (event) {
             const file = event.target.files[0];
             if (!file) return;
             event.target.value = '';
@@ -1493,7 +1523,7 @@
             }
         };
 
-        window.handleImportAssets = async function(event) {
+        window.handleImportAssets = async function (event) {
             const file = event.target.files[0];
             if (!file) return;
             event.target.value = ''; // Reset file input immediately
@@ -1569,4 +1599,5 @@
         init();
     </script>
 </body>
+
 </html>

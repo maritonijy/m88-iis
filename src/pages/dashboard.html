@@ -1878,7 +1878,7 @@
                 try {
                     // Note: View v_warranty_expiring may not exist yet
                    let wQuery = supabase
-                        .schema('public')
+                        .schema('m88_it_assets')
                         .from('v_warranty_expiring')
                         .select('*');
 
@@ -1904,7 +1904,7 @@
                 try {
                     // Note: View v_assets_refresh_due may not exist yet
                    let rQuery = supabase
-                        .schema('public')
+                        .schema('m88_it_assets')
                         .from('v_assets_refresh_due')
                         .select('*');
 
